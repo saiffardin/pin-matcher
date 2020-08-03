@@ -5,6 +5,8 @@ var tryNumbers = 3;
 const numPad = getElement('.num');
 const screen = getElement('#screen');
 const trySpan = getElement('#try-left');
+const wrongPassword = getElement('#wrong');
+const correctPassword = getElement('#correct');
 
 // --------------------------------------------------
 
@@ -19,6 +21,8 @@ function getElement(element) {
 
 // When Number is clicked. Get the current number selected
 var setNum = function () {
+
+    wrongPassword.style.display = 'none';
 
     if (screen.value.length < 4) {
         screen.value = screen.value + this.getAttribute("data-num");
@@ -61,14 +65,19 @@ getElement('#submit-btn').addEventListener('click', function () {
         console.log(tryNumbers);
 
         if (GeneratedPin === enteredPin) {
-            console.log("Pin Matched");
-            alert("Pin Matched");
+            correctPassword.style.display = 'block';
+        }
+
+        else if (tryNumbers>0) {
+            wrongPassword.style.display = 'block';
         }
 
         tryNumbers--;
         trySpan.innerHTML = tryNumbers;
+        
 
         if (tryNumbers==0){
+            wrongPassword.style.display = 'none';
             getElement('#submit-btn').disabled = true;
             getElement('#submit-btn').style.background = 'lightgray';
      

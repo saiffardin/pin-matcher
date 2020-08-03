@@ -96,11 +96,14 @@ color: #E0B612;
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px 20px;
+
+    display: none;
+
 }
 .notify-section{
     width: 35%;
     margin: 0 auto;
-    /* display: none; */
+    
 }
 .action-left {
     color: #FF3C5F;
